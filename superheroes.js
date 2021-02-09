@@ -764,3 +764,41 @@ const superheroes = [
   },
 ];
 //Start your code here
+/*
+ <article>
+        <h1></h1>
+        <img />
+        <p class="powers"></p>
+        <section class="sidekick">
+          <h2></h2>
+        </section>
+      </article>
+      {
+    id: 7823768246723675,
+    powers: ["Unlimited Minions", "JS", "Bloody Rich"],
+    outfit: "Big shoulder pads",
+    alias: "Lord Destroyer van der Doom",
+    mission: "World Domination",
+    cape: true,
+    weaknesses: ["Has kids", "Curry Herring", "Rainbows"],
+    image:
+      "https://static.wikia.nocookie.net/warhammer40k/images/7/74/Necron10.jpg/revision/latest/scale-to-width-down/340?cb=20130318163052",
+    enemies: 3,
+    sidekick: {
+      name: "YesMan",
+      cape: false,
+    },
+  },
+*/
+superheroes.forEach(showHero);
+
+function showHero(hero) {
+  const template = document.querySelector("template").content;
+  const myCopy = template.cloneNode(true);
+  myCopy.querySelector("h1").textContent = hero.alias;
+  myCopy.querySelector("img").src = hero.image;
+  myCopy.querySelector(".powers").textContent = hero.powers;
+  myCopy.querySelector(".sidekick h2").textContent = hero.sidekick.name;
+  const parent = document.querySelector("main");
+  parent.appendChild(myCopy);
+}
